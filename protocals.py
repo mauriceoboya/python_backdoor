@@ -52,7 +52,7 @@ class NetworkDevice:
     def __init__(self,ip,netmask,broadcast):
         self.ip=ip
         self.netmask=netmask
-        self.broadcast=broadcast
+        self.broadcast =broadcast
         NetworkDevice.net_count +=1
 
     def output(self):
