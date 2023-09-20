@@ -18,21 +18,30 @@ network_protocals=('HTTP','SMTP','HTTPS','TCP','UDP','FTP')
 
 print(network_protocals[1])
 
-users={
-    "user1":{'username':'james',
-    "password":'james123',
-    "email":"james@gmail.com",
-    "department":"Applied Statistics"},
-    "user2":{
-    'username':'james',
-    "password":'james123',
-    "email":"jamedf@gmail.com",
-    "department":"Applied Statistics"
+net_ports={
+    "net1":{'port21':'ftp',
+    "port22":'ssh',
+    "port80":"http",
+    "port153":"tomcat"},
+    "net2":{
+    'port21':'ftp',
+    "port22":'ssh',
+    "port80":"http",
+    "port153":"tomcat"
     }
 }
-users['user1'].update({'title':'DRs'})
-print(users['user1'].pop('title'))
-print(users['user1'].items())
+net_ports['net1'].update({'port443':'https'})
+print(net_ports['net1'].pop('port22'))
+print(net_ports['net1'].items())
 
-for i in users['user1'].items():
+for i in net_ports['net1'].items():
     print(i)
+
+
+def networks(*networks):
+    networks=['HTTP','SMTP','HTTPS','TCP','UDP','FTP']
+    for i in networks:
+        print(i)
+
+
+networks()
