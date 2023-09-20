@@ -45,3 +45,23 @@ def networks(*networks):
 
 
 networks()
+
+##oop
+class NetworkDevice:
+    net_count=0
+    def __init__(self,ip,netmask,broadcast):
+        self.ip=ip
+        self.netmask=netmask
+        self.broadcast=broadcast
+        NetworkDevice.net_count +=1
+
+    def output(self):
+        net_dev=NetworkDevice.net_count
+        print(f'There are {net_dev} connected devices')
+        return None
+
+
+dev1=NetworkDevice('11.965.0.13','255.235.0.0','10.97.0.13')
+dev2=NetworkDevice('12.968.0.12','245.255.0.0','10.56.0.12')
+dev1.output()
+print(NetworkDevice.output)
